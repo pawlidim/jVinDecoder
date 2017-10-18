@@ -15,28 +15,38 @@
  */
 package de.pawlidi.jvindecoder;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
 public class VinDataFactoryTest {
 
+	private static final String VALID_VIN = "W0L000051T2123456";
+
 	@Test
 	public void isValidVIN() {
-		System.out.println("Not yet implemented");
+		assertTrue(VinDataFactory.isValidVIN(VALID_VIN));
+		assertFalse(VinDataFactory.isValidVIN(VALID_VIN + "cas"));
 	}
 
 	@Test
 	public void extractWMI() {
-		System.out.println("Not yet implemented");
+		assertNotNull(VinDataFactory.extractWMI(VALID_VIN));
+		System.out.println(VinDataFactory.extractWMI(VALID_VIN));
 	}
 
 	@Test
 	public void decodeRegion() {
-		System.out.println("Not yet implemented");
+		assertNotNull(VinDataFactory.decodeRegion(VALID_VIN));
+		System.out.println(VinDataFactory.decodeRegion(VALID_VIN));
 	}
 
 	@Test
 	public void decodeCountry() {
-		System.out.println("Not yet implemented");
+		assertNotNull(VinDataFactory.decodeCountry(VALID_VIN));
+		System.out.println(VinDataFactory.decodeCountry(VALID_VIN));
 	}
 
 }
