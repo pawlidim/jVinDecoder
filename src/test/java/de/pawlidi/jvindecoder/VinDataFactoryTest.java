@@ -37,16 +37,16 @@ public class VinDataFactoryTest {
 		System.out.println(VinDataFactory.extractWMI(VALID_VIN));
 	}
 
-	@Test
-	public void decodeRegion() {
-		assertNotNull(VinDataFactory.decodeRegion(VALID_VIN));
-		System.out.println(VinDataFactory.decodeRegion(VALID_VIN));
-	}
-
-	@Test
-	public void decodeCountry() {
-		assertNotNull(VinDataFactory.decodeCountry(VALID_VIN));
-		System.out.println(VinDataFactory.decodeCountry(VALID_VIN));
-	}
+	// @Test
+	// public void decodeRegion() {
+	// assertNotNull(VinDataFactory.decodeRegion(VALID_VIN));
+	// System.out.println(VinDataFactory.decodeRegion(VALID_VIN));
+	// }
+	//
+	// @Test
+	// public void decodeCountry() {
+	// assertNotNull(VinDataFactory.decodeCountry(VALID_VIN));
+	// System.out.println(VinDataFactory.decodeCountry(VALID_VIN));
+	// }
 
 }

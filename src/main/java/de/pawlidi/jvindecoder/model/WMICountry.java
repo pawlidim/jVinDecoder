@@ -15,13 +15,16 @@
  */
 package de.pawlidi.jvindecoder.model;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 /**
- * https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/World_Manufacturer_Identifier_(WMI)
+ * This class represents WMI (World Manufacturer Identifier) country of the VIN. The first two character of the VIN is the country in which the manufacturer is
+ * located.
+ * 
  * @author pawlidim
  *
- */
-public enum WMICountry {
-	SouthAfrica("[A][A-H]"),
+ *	SouthAfrica("[A][A-H]"),
     IvoryCoast("[A][J-N]"),
     Africa("([A][P-Z0-9])|([B-D][S-Z0-9])|([E-F][L-Z0-9])|([G-H][A-Z0-9])"),
     Angola("[B][A-E]"),
@@ -109,18 +112,137 @@ public enum WMICountry {
     Paraguay("[9][L-R]"),
     Uruguay("[9][S-W]"),
     Trinidad_Tobago("[9][X-Z1-2]");
+ */
+@DatabaseTable(tableName = WMICountry.NAME)
+public class WMICountry extends BaseModel {
+	
+	/** Defines the database table name*/
+	static final String NAME = "WMI_COUNTRY";
+	
+	@DatabaseField(canBeNull = false)
+	private String name;
+	@DatabaseField(canBeNull = false)
+	private String prefixRegex;
+	@DatabaseField(canBeNull = false)
+	private String suffixRegex;
+	
+	/**
+	 * Default constructor to construct new WMI country object.
+	 */
+	public WMICountry() {
+		super();
+	}
 
-    private final String regex;
 
-    WMICountry(final String regex){
-        this.regex = regex;
-    }
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
 
-    /**
-     * 
-     * @return
-     */
-    public String getRegex() {
-        return regex;
-    }
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	/**
+	 * @return the prefixRegex
+	 */
+	public String getPrefixRegex() {
+		return prefixRegex;
+	}
+
+
+	/**
+	 * @param prefixRegex the prefixRegex to set
+	 */
+	public void setPrefixRegex(String prefixRegex) {
+		this.prefixRegex = prefixRegex;
+	}
+
+
+	/**
+	 * @return the suffixRegex
+	 */
+	public String getSuffixRegex() {
+		return suffixRegex;
+	}
+
+
+	/**
+	 * @param suffixRegex the suffixRegex to set
+	 */
+	public void setSuffixRegex(String suffixRegex) {
+		this.suffixRegex = suffixRegex;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((prefixRegex == null) ? 0 : prefixRegex.hashCode());
+		result = prime * result + ((suffixRegex == null) ? 0 : suffixRegex.hashCode());
+		return result;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (!(obj instanceof WMICountry)) {
+			return false;
+		}
+		WMICountry other = (WMICountry) obj;
+		if (name == null) {
+			if (other.getName() != null) {
+				return false;
+			}
+		} else if (!name.equals(other.getName())) {
+			return false;
+		}
+		if (prefixRegex == null) {
+			if (other.getPrefixRegex() != null) {
+				return false;
+			}
+		} else if (!prefixRegex.equals(other.getPrefixRegex())) {
+			return false;
+		}
+		if (suffixRegex == null) {
+			if (other.getSuffixRegex() != null) {
+				return false;
+			}
+		} else if (!suffixRegex.equals(other.getSuffixRegex())) {
+			return false;
+		}
+		return true;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return name + "<" + prefixRegex + suffixRegex + ">";
+	}
+	
+	
 }

@@ -14,6 +14,8 @@
 	<maven.compiler.debug>true</maven.compiler.debug>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	<additionalparam>-Xdoclint:none</additionalparam>
+	<h2db.version>1.4.196</h2db.version>
+	<ormlite.version>5.0</ormlite.version>
   </properties>
   <dependencies>
 	<dependency>
@@ -45,6 +47,26 @@
 	    <artifactId>junit-platform-runner</artifactId>
 	    <version>1.0.1</version>
 	    <scope>test</scope>
+	</dependency>
+	<dependency>
+	    <groupId>de.pawlidi</groupId>
+	    <artifactId>utils</artifactId>
+	    <version>0.0.1</version>
+	</dependency>
+	<dependency>
+    	<groupId>com.h2database</groupId>
+    	<artifactId>h2</artifactId>
+    	<version>${h2db.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.j256.ormlite</groupId>
+	    <artifactId>ormlite-core</artifactId>
+	    <version>${ormlite.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.j256.ormlite</groupId>
+	    <artifactId>ormlite-jdbc</artifactId>
+	    <version>${ormlite.version}</version>
 	</dependency>
 </dependencies>
 	<licenses>

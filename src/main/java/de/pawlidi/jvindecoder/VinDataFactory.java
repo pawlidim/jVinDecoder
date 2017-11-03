@@ -15,8 +15,6 @@
  */
 package de.pawlidi.jvindecoder;
 
-import java.util.regex.Pattern;
-
 import de.pawlidi.jvindecoder.model.WMICountry;
 import de.pawlidi.jvindecoder.model.WMIRegion;
 import de.pawlidi.jvindecoder.utils.Utils;
@@ -40,11 +38,11 @@ public final class VinDataFactory {
 			return null;
 		}
 		final String region = Utils.truncate(code, 1);
-		for (WMIRegion wmiRegion : WMIRegion.values()) {
-			if (Pattern.matches(wmiRegion.getRegex(), region)) {
-				return wmiRegion;
-			}
-		}
+		// for (WMIRegion wmiRegion : WMIRegion.values()) {
+		// if (Pattern.matches(wmiRegion.getRegex(), region)) {
+		// return wmiRegion;
+		// }
+		// }
 		return null;
 	}
 
@@ -53,11 +51,11 @@ public final class VinDataFactory {
 			return null;
 		}
 		final String region = Utils.truncate(code, 1);
-		for (WMICountry wmiCountry : WMICountry.values()) {
-			if (Pattern.matches(wmiCountry.getRegex(), region)) {
-				return wmiCountry;
-			}
-		}
+		// for (WMICountry wmiCountry : WMICountry.values()) {
+		// if (Pattern.matches(wmiCountry.getRegex(), region)) {
+		// return wmiCountry;
+		// }
+		// }
 		return null;
 	}
 }
