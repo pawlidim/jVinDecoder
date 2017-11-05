@@ -1,0 +1,98 @@
+2017-11-03 15:54:41 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2516)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:2720)
+Caused by: org.h2.jdbc.JdbcSQLException: Allgemeiner Fehler: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 5 more
+Caused by: java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:435)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:98)
+	at org.h2.mvstore.MVStore.readChunkHeader(MVStore.java:1582)
+	at org.h2.mvstore.MVStore.getMetaMap(MVStore.java:526)
+	at org.h2.mvstore.MVStore.openMapVersion(MVStore.java:409)
+	at org.h2.mvstore.MVMap.openVersion(MVMap.java:1133)
+	at org.h2.mvstore.MVMap.rewrite(MVMap.java:780)
+	at org.h2.mvstore.MVStore.compactRewrite(MVStore.java:1918)
+	at org.h2.mvstore.MVStore.compact(MVStore.java:1810)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2512)
+	... 1 more
+Caused by: java.io.EOFException
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:423)
+	... 10 more
+2017-11-03 15:59:46 database: could not close the database
+org.h2.message.DbException: Allgemeiner Fehler: "Allgemeiner Fehler: ""java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]""
+General error: ""java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]"" [50000-196]"
+General error: "Allgemeiner Fehler: ""java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]""
+General error: ""java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]"" [50000-196]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.engine.Database.throwLastBackgroundException(Database.java:2038)
+	at org.h2.engine.Database.close(Database.java:1224)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:63)
+Caused by: org.h2.jdbc.JdbcSQLException: Allgemeiner Fehler: "Allgemeiner Fehler: ""java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]""
+General error: ""java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]"" [50000-196]"
+General error: "Allgemeiner Fehler: ""java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]""
+General error: ""java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]"" [50000-196]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 4 more
+Caused by: org.h2.message.DbException: Allgemeiner Fehler: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2516)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:2720)
+Caused by: org.h2.jdbc.JdbcSQLException: Allgemeiner Fehler: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 5 more
+Caused by: java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:435)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:98)
+	at org.h2.mvstore.MVStore.readChunkHeader(MVStore.java:1582)
+	at org.h2.mvstore.MVStore.getMetaMap(MVStore.java:526)
+	at org.h2.mvstore.MVStore.openMapVersion(MVStore.java:409)
+	at org.h2.mvstore.MVMap.openVersion(MVMap.java:1133)
+	at org.h2.mvstore.MVMap.rewrite(MVMap.java:780)
+	at org.h2.mvstore.MVStore.compactRewrite(MVStore.java:1918)
+	at org.h2.mvstore.MVStore.compact(MVStore.java:1810)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2512)
+	... 1 more
+Caused by: java.io.EOFException
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:423)
+	... 10 more
+2017-11-03 15:59:46 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2516)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:2720)
+Caused by: org.h2.jdbc.JdbcSQLException: Allgemeiner Fehler: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]"
+General error: "java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 5 more
+Caused by: java.lang.IllegalStateException: Reading from nio:C:/Users/pawlidim/git/jVinDecoder/src/main/resources/META-INF/decoder.mv.db failed; file length 0 read length 1024 at 192512 [1.4.196/1]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:435)
+	at org.h2.mvstore.FileStore.readFully(FileStore.java:98)
+	at org.h2.mvstore.MVStore.readChunkHeader(MVStore.java:1582)
+	at org.h2.mvstore.MVStore.getMetaMap(MVStore.java:526)
+	at org.h2.mvstore.MVStore.openMapVersion(MVStore.java:409)
+	at org.h2.mvstore.MVMap.openVersion(MVMap.java:1133)
+	at org.h2.mvstore.MVMap.rewrite(MVMap.java:780)
+	at org.h2.mvstore.MVStore.compactRewrite(MVStore.java:1918)
+	at org.h2.mvstore.MVStore.compact(MVStore.java:1810)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:2512)
+	... 1 more
+Caused by: java.io.EOFException
+	at org.h2.mvstore.DataUtils.readFully(DataUtils.java:423)
+	... 10 more

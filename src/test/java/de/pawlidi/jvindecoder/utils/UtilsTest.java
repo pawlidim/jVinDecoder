@@ -13,32 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.pawlidi.jvindecoder.db;
+package de.pawlidi.jvindecoder.utils;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
 import org.junit.jupiter.api.Test;
 
-public class DataBaseManagerTest {
+public class UtilsTest {
 
 	@Test
-	public void createEmptyDatabaseTest() throws SQLException, IOException {
-		DataBaseManager.instance().createEmptyDatabase("C:/temp/decoderEmpty");
-		assertTrue(true);
+	public void generateUUIDTest() {
+		String uuid = Utils.generateUUID();
+		assertTrue(Utils.isNotBlank(uuid));
 	}
 
 	@Test
-	public void insertWMIRegionTest() throws SQLException, IOException {
-		DataBaseManager.instance().insertWMIRegion("C:/temp/decoder");
-		assertTrue(true);
-	}
-
-	@Test
-	public void insertWMICountryTest() throws SQLException, IOException {
-		DataBaseManager.instance().insertWMICountry("C:/temp/decoder");
-		assertTrue(true);
+	public void writeStringToFileTest() {
+		String[] uuids = new String[200];
+		for (int i = 0; i < 200; i++) {
+			uuids[i] = Utils.generateUUID() + "\n";
+		}
+		assertTrue(Utils.writeStringToFile("C:\\temp\\data.txt", uuids));
 	}
 }

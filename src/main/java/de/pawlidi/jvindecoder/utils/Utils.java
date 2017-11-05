@@ -15,6 +15,13 @@
  */
 package de.pawlidi.jvindecoder.utils;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.UUID;
+
 /**
  * 
  * @author pawlidim
@@ -96,8 +103,8 @@ public final class Utils {
 
 	/**
 	 * <p>
-	 * Truncates a String. This will turn "Now is the time for all good men"
-	 * into "Now is the time for".
+	 * Truncates a String. This will turn "Now is the time for all good men" into
+	 * "Now is the time for".
 	 * </p>
 	 *
 	 * <p>
@@ -136,13 +143,13 @@ public final class Utils {
 
 	/**
 	 * <p>
-	 * Truncates a String. This will turn "Now is the time for all good men"
-	 * into "is the time for all".
+	 * Truncates a String. This will turn "Now is the time for all good men" into
+	 * "is the time for all".
 	 * </p>
 	 *
 	 * <p>
-	 * Works like {@code truncate(String, int)}, but allows you to specify a
-	 * "left edge" offset.
+	 * Works like {@code truncate(String, int)}, but allows you to specify a "left
+	 * edge" offset.
 	 *
 	 * <p>
 	 * Specifically:
@@ -222,13 +229,13 @@ public final class Utils {
 
 	/**
 	 * <p>
-	 * Compares two CharSequences, returning {@code true} if they represent
-	 * equal sequences of characters.
+	 * Compares two CharSequences, returning {@code true} if they represent equal
+	 * sequences of characters.
 	 * </p>
 	 *
 	 * <p>
-	 * {@code null}s are handled without exceptions. Two {@code null} references
-	 * are considered to be equal. The comparison is case sensitive.
+	 * {@code null}s are handled without exceptions. Two {@code null} references are
+	 * considered to be equal. The comparison is case sensitive.
 	 * </p>
 	 *
 	 * <pre>
@@ -244,8 +251,8 @@ public final class Utils {
 	 *            the first CharSequence, may be {@code null}
 	 * @param cs2
 	 *            the second CharSequence, may be {@code null}
-	 * @return {@code true} if the CharSequences are equal (case-sensitive), or
-	 *         both {@code null}
+	 * @return {@code true} if the CharSequences are equal (case-sensitive), or both
+	 *         {@code null}
 	 */
 	public static boolean equals(final CharSequence cs1, final CharSequence cs2) {
 		if (cs1 == cs2) {
@@ -265,13 +272,13 @@ public final class Utils {
 
 	/**
 	 * <p>
-	 * Compares two CharSequences, returning {@code true} if they represent
-	 * equal sequences of characters, ignoring case.
+	 * Compares two CharSequences, returning {@code true} if they represent equal
+	 * sequences of characters, ignoring case.
 	 * </p>
 	 *
 	 * <p>
-	 * {@code null}s are handled without exceptions. Two {@code null} references
-	 * are considered equal. Comparison is case insensitive.
+	 * {@code null}s are handled without exceptions. Two {@code null} references are
+	 * considered equal. Comparison is case insensitive.
 	 * </p>
 	 *
 	 * <pre>
@@ -286,8 +293,8 @@ public final class Utils {
 	 *            the first CharSequence, may be null
 	 * @param str2
 	 *            the second CharSequence, may be null
-	 * @return {@code true} if the CharSequence are equal, case insensitive, or
-	 *         both {@code null}
+	 * @return {@code true} if the CharSequence are equal, case insensitive, or both
+	 *         {@code null}
 	 */
 	public static boolean equalsIgnoreCase(final CharSequence str1, final CharSequence str2) {
 		if (str1 == null || str2 == null) {
@@ -362,5 +369,24 @@ public final class Utils {
 		}
 
 		return true;
+	}
+
+	public static String generateUUID() {
+		return UUID.randomUUID().toString();
+	}
+
+	public static boolean writeStringToFile(final String path, String... datas) {
+		if (Utils.isBlank(path) || datas == null || datas.length == 0) {
+			return false;
+		}
+		Path filePath = Paths.get(path);
+		try (BufferedWriter writer = Files.newBufferedWriter(filePath)) {
+			for (String data : datas) {
+				writer.write(data);
+			}
+			return true;
+		} catch (IOException e) {
+			return false;
+		}
 	}
 }

@@ -35,15 +35,17 @@ import com.j256.ormlite.table.DatabaseTable;
  * @author pawlidim
  *
  */
-@DatabaseTable(tableName = WMIRegion.NAME)
+@DatabaseTable(tableName = WMIRegion.TABLE_NAME)
 public class WMIRegion extends BaseModel {
 
 	/** Defines the database table name */
-	static final String NAME = "WMI_REGION";
+	public static final String TABLE_NAME = "WMI_REGION";
+	public static final String NAME = "NAME";
+	public static final String REGEX = "WMI_REGEX";
 
-	@DatabaseField(canBeNull = false)
+	@DatabaseField(canBeNull = false, columnName = NAME)
 	private String name;
-	@DatabaseField(canBeNull = false)
+	@DatabaseField(canBeNull = false, columnName = REGEX)
 	private String wmiRegex;
 
 	/**
@@ -51,6 +53,16 @@ public class WMIRegion extends BaseModel {
 	 */
 	public WMIRegion() {
 		super();
+	}
+
+	/**
+	 * @param name
+	 * @param wmiRegex
+	 */
+	public WMIRegion(String name, String wmiRegex) {
+		this();
+		this.name = name;
+		this.wmiRegex = wmiRegex;
 	}
 
 	/**
